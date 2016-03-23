@@ -14,44 +14,65 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:id="@+id/linearLayout">
+        android:layout_height="match_parent">
 
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:id="@+id/linearLayout">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mes"
+                android:id="@+id/buttonMes"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="#007DAE"
+                android:textSize="17sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consultas"
+                android:id="@+id/buttonConsultas"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="#007DAE"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <CalendarView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mes"
-            android:id="@+id/buttonMes"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:background="#007DAE"/>
+            android:id="@+id/calendarView"
+            android:layout_below="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"/>
 
-        <Button
-            android:layout_width="wrap_content"
+        <ListView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Consultas"
-            android:id="@+id/buttonConsultas"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:background="#007DAE"/>
+            android:id="@+id/eventosList"
+            android:layout_below="@+id/calendarView"
+            android:layout_alignLeft="@+id/calendarView"
+            android:layout_alignStart="@+id/calendarView"
+            android:layout_marginTop="5dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="5dp"
+            android:layout_weight="1.5"/>
     </LinearLayout>
-
-    <CalendarView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/calendarView"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
 </RelativeLayout>
