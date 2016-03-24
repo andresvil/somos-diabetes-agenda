@@ -12,47 +12,55 @@
     tools:context="com.example.andresvil.agenda.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <!--BUTTONS-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:id="@+id/buttonsLinearLayout">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mes"
+            android:id="@+id/buttonMes"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:background="#007DAE"
+            android:textSize="17sp"
+            android:alpha="1"
+            android:enabled="false"
+            android:onClick="toMes"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consultas"
+            android:id="@+id/buttonConsultas"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:background="#007DAE"
+            android:textSize="17sp"
+            android:alpha="0.5"
+            android:enabled="true"
+            android:onClick="toConsultas"/>
+    </LinearLayout>
+
+    <!--MES: CALENDAR & LISTVIEW-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal"
-            android:id="@+id/linearLayout">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mes"
-                android:id="@+id/buttonMes"
-                android:layout_weight="1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:background="#007DAE"
-                android:textSize="17sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Consultas"
-                android:id="@+id/buttonConsultas"
-                android:layout_weight="1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:background="#007DAE"
-                android:textSize="17sp" />
-        </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonsLinearLayout">
 
         <CalendarView
             android:layout_width="wrap_content"
@@ -61,7 +69,8 @@
             android:layout_below="@+id/linearLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:visibility="visible"/>
 
         <ListView
             android:layout_width="match_parent"
@@ -73,6 +82,18 @@
             android:layout_marginTop="5dp"
             android:divider="@android:color/transparent"
             android:dividerHeight="5dp"
-            android:layout_weight="1.5"/>
+            android:layout_weight="2"
+            android:visibility="visible"/>
     </LinearLayout>
+
+    <!--CONSULTAS LISTVIEW-->
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/buttonsLinearLayout"
+        android:id="@+id/consultasList"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"
+        android:visibility="invisible"/>
 </RelativeLayout>

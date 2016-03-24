@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +19,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button mesButton;
+    Button consultasButton;
+    ListView eventosList;
+    ListView consultasList;
+    CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Find list, buttons and their textviews
-        Button mesButton = (Button) findViewById(R.id.buttonMes);
-        Button consultasButton = (Button) findViewById(R.id.buttonConsultas);
+        mesButton = (Button) findViewById(R.id.buttonMes);
+        consultasButton = (Button) findViewById(R.id.buttonConsultas);
         TextView mesText = (TextView) findViewById(R.id.buttonMes);
         TextView consultasText = (TextView) findViewById(R.id.buttonConsultas);
-        ListView eventosList = (ListView) findViewById(R.id.eventosList);
+        eventosList = (ListView) findViewById(R.id.eventosList);
+        consultasList = (ListView) findViewById(R.id.consultasList);
+        calendarView = (CalendarView) findViewById(R.id.calendarView);
 
         // Populate nombreEventos arrayList
         ArrayList<String> nombreEventos = new ArrayList<>();
@@ -63,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         // Create and set adapter
         AgendaAdapter adapter = new AgendaAdapter(getApplicationContext(), R.layout.eventos_row_layout);
         eventosList.setAdapter(adapter);
+        consultasList.setAdapter(adapter);
 
         // Load arrayLists into Evento and into AgendaAdapter
         for (int i = 0; i < nombreEventos.size(); i++)
@@ -110,5 +120,35 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // When Consultas Button is clicked
+    public void toConsultas(View v)
+    {
+        // Change buttons
+        consultasButton.setEnabled(false);
+        consultasButton.setAlpha(1);
+        mesButton.setEnabled(true);
+        mesButton.setAlpha(0.5f);
+
+        // Change visible Views
+        consultasList.setVisibility(View.VISIBLE);
+        eventosList.setVisibility(View.INVISIBLE);
+        calendarView.setVisibility(View.INVISIBLE);
+    }
+
+    // When Mes Button is clicked
+    public void toMes(View v)
+    {
+        // Change buttons
+        consultasButton.setEnabled(true);
+        consultasButton.setAlpha(0.5f);
+        mesButton.setEnabled(false);
+        mesButton.setAlpha(1);
+
+        // Change visible Views
+        consultasList.setVisibility(View.INVISIBLE);
+        eventosList.setVisibility(View.VISIBLE);
+        calendarView.setVisibility(View.VISIBLE);
     }
 }
