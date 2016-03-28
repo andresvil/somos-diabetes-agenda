@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#007DAE</item>
     </style>
-    
+
     <!--<style name="Widget.CalendarView.Custom" parent="android:Widget.CalendarView">
         <item name="android:unfocusedMonthDateColor">#007DAE</item>
         <item name="android:weekNumberColor">#007DAE</item>
